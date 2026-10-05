@@ -25,7 +25,9 @@ open class AppAssembly {
         tag: DependencyTagConvertible? = nil,
         factory: @escaping () -> T
     ) -> T {
-        if let object = try? Locator.shared.container.resolve(type, tag: tag) as? T { return object }
+        if let object = try? Locator.shared.container.resolve(type, tag: tag) as? T {
+            return object
+        }
 
         Locator.shared.container.register(scope, type: type, tag: tag) { _ in factory() }
 

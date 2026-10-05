@@ -9,7 +9,7 @@ import Foundation
 // MARK: - IDefinition
 
 public protocol IDefinition {
-    func implements<A>(type a: A.Type) -> IDefinition
+    func implements(type a: (some Any).Type) -> IDefinition
 }
 
 // MARK: - Locator

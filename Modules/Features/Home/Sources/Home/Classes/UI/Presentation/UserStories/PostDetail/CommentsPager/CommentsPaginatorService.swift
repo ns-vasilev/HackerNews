@@ -42,7 +42,9 @@ actor CommentsPaginatorService {
             let post = try await postsService.loadPosts(with: [postID]).first
             ids = post?.kids ?? []
         case .useCache:
-            if !ids.isEmpty { return ids }
+            if !ids.isEmpty {
+                return ids
+            }
             return try await loadCommentsIDs(postID: postID, behaviour: .reload)
         }
 

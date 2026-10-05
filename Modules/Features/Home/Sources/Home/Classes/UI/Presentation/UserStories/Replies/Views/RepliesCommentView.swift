@@ -57,7 +57,10 @@ struct RepliesCommentView: View {
 
 extension RepliesCommentView {
     struct ViewModel: Identifiable, Equatable {
-        var id: UUID { comment.id }
+        var id: UUID {
+            comment.id
+        }
+
         let comment: CommentView.ViewModel
         let level: Int
     }

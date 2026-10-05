@@ -1,0 +1,6 @@
+#!/bin/bash
+#MISE description="Format the project using SwiftFormat and fix SwiftLint issues"
+
+set -eo pipefail
+
+exec mise run lint --fix

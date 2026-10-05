@@ -34,7 +34,6 @@ struct RootTabBarView: View {
 
     // MARK: Private
 
-    @ViewBuilder
     private func tabItemView(_ tab: Tab, @ViewBuilder content: @escaping () -> some View) -> some View {
         content()
             .tabItem {

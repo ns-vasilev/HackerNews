@@ -1,0 +1,54 @@
+name: lint
+
+on:
+  push:
+    branches:
+      - dev
+      - master
+  pull_request:
+    paths:
+      - "HackerNews/**"
+      - "HackerNewsTests/**"
+      - "Modules/**"
+      - ".swiftlint.yml"
+      - ".swiftformat"
+      - "mise.toml"
+      - "mise/**"
+      - ".github/workflows/lint.yml"
+
+concurrency:
+  group: lint-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: lint
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: jdx/mise-action@v5
+      - name: Run
+        run: mise run lint
+
+  discover-typos:
+    name: discover-typos
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Python environment
+        run: |
+          python3 -m venv .venv
+          source .venv/bin/activate
+          pip install --upgrade pip
+          pip install codespell
+
+      - name: Discover typos
+        run: |
+          source .venv/bin/activate
+          codespell --ignore-words-list="hart,inout,msdos,sur" --skip="./.build/*,./.git/*,./fastlane/*,./.venv/*"

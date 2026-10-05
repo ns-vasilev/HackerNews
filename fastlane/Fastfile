@@ -80,7 +80,7 @@ platform :ios do
         scheme: "Debug",
         cloned_source_packages_path: ".cache/spm",
         clean: true,
-        device: "iPhone 14 Pro",
+        device: "iPhone 17 Pro",
         reset_simulator: true,
         reinstall_app: true,
         skip_detect_devices: true,

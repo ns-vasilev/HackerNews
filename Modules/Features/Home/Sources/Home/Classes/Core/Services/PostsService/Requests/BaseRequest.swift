@@ -7,7 +7,9 @@ import Foundation
 import NetworkLayerInterfaces
 
 class BaseRequest: IRequest {
-    var path: String { "" }
+    var path: String {
+        ""
+    }
 
     var httpMethod: NetworkLayerInterfaces.HTTPMethod {
         .get

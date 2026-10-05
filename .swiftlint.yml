@@ -2,7 +2,7 @@ excluded:
   - .build
   - .swiftpm
   - .cache
-  - "Modules/Common/HackerNewsLocalization"
+  - "**/Generated"
 
 # Rules
 
@@ -16,7 +16,6 @@ disabled_rules:
   - attributes
   - blanket_disable_command
 opt_in_rules: # some rules are only opt-in
-  - anyobject_protocol
   - array_init
   - closure_body_length
   - closure_end_indentation
@@ -43,7 +42,6 @@ opt_in_rules: # some rules are only opt-in
   - ibinspectable_in_extension
   - identical_operands
   - implicit_return
-  - inert_defer
   - joined_default_parameter
   - last_where
   - legacy_multiple
@@ -117,8 +115,6 @@ function_body_length:
 nesting:
   type_level:
     warning: 2
-  statement_level:
-    warning: 10
 
 type_name:
   max_length:

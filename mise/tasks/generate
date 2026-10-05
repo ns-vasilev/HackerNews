@@ -1,0 +1,7 @@
+#!/bin/bash
+#MISE description="Generate resources (SwiftGen) and the Xcode project (XcodeGen)"
+
+set -eo pipefail
+
+make swiftgen
+xcodegen generate

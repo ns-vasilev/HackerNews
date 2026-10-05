@@ -43,7 +43,9 @@ actor PostsPaginatorService: IOffsetPageLoader {
     // MARK: Private
 
     private func prefetchIDs(for postType: PostType) async throws -> [Int] {
-        if let ids = ids[postType], !ids.isEmpty { return ids }
+        if let ids = ids[postType], !ids.isEmpty {
+            return ids
+        }
 
         let ids = try await postsService.loadIDs(for: postType)
         self.ids[postType] = ids

@@ -48,5 +48,7 @@ enum PostType: Int, CaseIterable, Identifiable {
         }
     }
 
-    var id: Self { self }
+    var id: Self {
+        self
+    }
 }
