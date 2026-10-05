@@ -18,25 +18,25 @@ on:
 jobs:
   iOS:
     name: 
-    runs-on: macos-14
+    runs-on: macos-26
     strategy:
       fail-fast: false
       matrix:
         include:
-          - destination: "OS=17.0,name=iPhone 14 Pro"
+          - destination: "name=iPhone 17 Pro"
             name: "iOS"
             scheme: "Debug"
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v7
       - name: Install Dependencies
-        uses: jdx/mise-action@v2
+        uses: jdx/mise-action@v5
       - name: Generate resources
         run: mise exec -- make swiftgen
       - name: Generate project
         run: mise exec -- xcodegen generate
       - name: Select Xcode version
-        run: sudo xcode-select -s '/Applications/Xcode_15.4.app/Contents/Developer'
+        run: sudo xcode-select -s '/Applications/Xcode_26.6.app/Contents/Developer'
       - name: Run tests
         run: |
           bundle add fastlane

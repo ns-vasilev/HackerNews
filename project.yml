@@ -4,7 +4,7 @@ options:
   createIntermediateGroups: true
   deploymentTarget:
     iOS: 17.0
-  xcodeVersion: 15.2
+  xcodeVersion: 26.0
 configs:
   Debug: debug
   Beta: beta
