@@ -28,11 +28,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install Dependencies
-        run: make setup_build_tools
+        uses: jdx/mise-action@v2
       - name: Generate resources
-        run: make swiftgen
+        run: mise exec -- make swiftgen
       - name: Generate project
-        run: xcodegen generate
+        run: mise exec -- xcodegen generate
       - name: Select Xcode version
         run: sudo xcode-select -s '/Applications/Xcode_15.4.app/Contents/Developer'
       - name: Run tests

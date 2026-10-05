@@ -91,7 +91,7 @@ iOSInjectionProject/
 
 # Modules
 
-Modules/Common/HackerNewsLocalization/Sources/HackerNewsLocalization/Classes/Strings.swift
+Modules/Common/HackerNewsLocalization/Sources/HackerNewsLocalization/Classes/Generated/Strings.swift
 Modules/Common/DesignKit/Sources/DesignKit/Classes/Design/Generated/Colors.swift
 Modules/Common/DesignKit/Sources/DesignKit/Classes/Design/Generated/Fonts.swift
 Modules/Features/Settings/Sources/Settings/Classes/Generated/Assets.swift
@@ -103,3 +103,6 @@ Modules/Features/Settings/Sources/Settings/Classes/Generated/Assets.swift
 *.env.default
 *.p8
 fastlane/api-key.json
+
+# macOS
+.DS_Store

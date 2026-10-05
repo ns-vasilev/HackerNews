@@ -1,5 +1,5 @@
 input_dir: Sources/HackerNewsLocalization/Resources
-output_dir: Sources/HackerNewsLocalization/Classes
+output_dir: Sources/HackerNewsLocalization/Classes/Generated
 strings:
     inputs:
         - en.lproj/Localizable.strings

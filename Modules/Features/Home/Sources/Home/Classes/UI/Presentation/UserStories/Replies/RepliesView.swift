@@ -16,12 +16,6 @@ struct RepliesView: View {
 
     let store: StoreOf<RepliesFeature>
 
-    // MARK: Initialization
-
-    init(store: StoreOf<RepliesFeature>) {
-        self.store = store
-    }
-
     // MARK: View
 
     var body: some View {

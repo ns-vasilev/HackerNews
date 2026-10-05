@@ -134,7 +134,8 @@ targets:
           PROVISIONING_PROFILE_SPECIFIER: match AppStore com.nikitavasilev.HackerNews
     prebuildScripts:
       - script: |
-          make swiftgen
+          export PATH="$PATH:/opt/homebrew/bin"
+          mise exec -- make swiftgen
         name: SwiftGen 
       - script: |
           if [[ "${CONFIGURATION}" == "Debug" || "${CONFIGURATION}" == "Beta" ]]; then
@@ -142,12 +143,12 @@ targets:
 
             echo "[Swiftlint] Run"
 
-            if which mint >/dev/null; then
-              xcrun --sdk macosx make lint
-  
+            if which mise >/dev/null; then
+              mise exec -- swiftlint lint --config .swiftlint.yml
+
               echo "[Swiftlint] Complete"
             else
-              echo "[Swiftlint] Bootstrap mint"
+              echo "[Swiftlint] mise is not installed"
             fi
           fi
         name: SwiftLint

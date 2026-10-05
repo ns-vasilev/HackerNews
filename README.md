@@ -38,7 +38,7 @@ $ cd HackerNews
     
 2) Bootstrap the development environment:
 ```
-make bootstrap
+mise install
 ```
 
 3) Open the project in Xcode:

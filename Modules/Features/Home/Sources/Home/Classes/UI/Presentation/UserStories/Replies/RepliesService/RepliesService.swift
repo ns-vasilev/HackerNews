@@ -34,9 +34,8 @@ extension RepliesService: IRepliesService {
                 taskGroup.addTask { try await self.loadComments(for: id) }
             }
 
-            let comments = try await taskGroup.reduce(into: [ReplyComment]()) { $0.append($1) }
+            return try await taskGroup.reduce(into: [ReplyComment]()) { $0.append($1) }
                 .sorted(by: { $0.comment.time < $1.comment.time })
-            return comments
         }
 
         return ReplyComment(comment: comment, replies: subComments)

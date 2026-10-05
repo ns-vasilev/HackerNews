@@ -10,7 +10,9 @@ enum Tab: Int, Identifiable {
     case home
     case settings
 
-    var id: Self { self }
+    var id: Self {
+        self
+    }
 
     var name: String {
         switch self {

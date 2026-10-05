@@ -19,12 +19,6 @@ struct RootSettingsView: View {
 
     let store: StoreOf<RootSettingsFeature>
 
-    // MARK: Initialization
-
-    init(store: StoreOf<RootSettingsFeature>) {
-        self.store = store
-    }
-
     // MARK: View
 
     var body: some View {

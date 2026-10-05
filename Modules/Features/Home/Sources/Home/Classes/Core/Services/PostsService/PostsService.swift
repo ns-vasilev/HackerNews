@@ -41,10 +41,8 @@ extension PostsService: IPostsService {
                 taskGroup.addTask { try await self.loadPost(withID: id) }
             }
 
-            let posts = try await taskGroup.reduce(into: [Post]()) { $0.append($1) }
+            return try await taskGroup.reduce(into: [Post]()) { $0.append($1) }
                 .sorted(by: { $0.time > $1.time })
-
-            return posts
         })
     }
 }
